@@ -1,18 +1,18 @@
 // choose the words for the hangman game. 
-// assign them as variables in a string
+// assign their letters as variables in a string
 
-var words = ['Paris', 
-			'Arles', 
-			'Saint-Remy-de-Provence', 
-			'Auvers-Sur-Oise'];
+var word1 = ['P','a','r','i', 's'];
+var word2 =	['A','r','l','e','s'];		
+var word3 =	['S','a','i','n','t','R','e','m','y','d','e','P','r','o','v','e','n','c','e'] 		']
+var words4 = ['A','u','v','e','r','s','S','u','r','O','i','s','e' ]		
 
 // make a second array that will correspond to the number of spaces 
 // in each of the words
 
-var blanks = ['_ _ _ _ _', 
-			'_ _ _ _ _', 
-			'_ _ _ _ _-_ _ _ _-_ _ _ _ _ _ _', 
-			'_ _ _ _ _ _-_ _ _-_ _ _ _'];
+var blanks1 = ['_','_','_', '_', '_'] 
+var blanks2	= ['_','_','_', '_', '_'] 		
+var blanks3 = ['_', '_', '_', '_','_','_','_','_','_', '_', '_', '_', '_', '_' '_' '_', 
+var blanks4	= ['_','_','_','_','_','_','_','_','_','_', '_','_', '_',];
 
 // make a third array for the choices of letters that 
 // can be chosen in the game
@@ -29,15 +29,33 @@ var wins = 0
 var guesses = 10
 
 // create an event where any letter can activate the game
+document.getElementById("activate").onkeypress = function() {myFunction()};
 
-
-function chooseLetter (){
-
+function myFunction() {
+    // document.getElementById("activate").style.backgroundColor = "red";
 }
+
+
+
+// create a way for the user to guess a letter from var letters 
+function chooseLetterfirstWord (){
+	if letter = 'a', then 
+}
+userGuess === 'a'
+
+// which can then be 
+
+// div id Answers that can store the blanks
+
+
+//blanks are replaced by letters as letters are chosen correctly
+
 
 // (same letter can be chosen multiple times without penalty &
 
 // letters are stored once in the guesses div-
+
+
 
 // some sort of conditional statement?)
 

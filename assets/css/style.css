@@ -1,3 +1,58 @@
 body {
-	background-color: blue;
+	background-image: url(http://www.dafenonline.com/op/reproductions/Van_Gogh_Branches_with_Almond_Blossom_dafenonline.jpg); 
+	background-repeat:no-repeat;
+	background-size:cover;
 }
+
+.image-container {
+	float: left;
+	width: 50%;
+}
+
+#heading  {
+	color: rgb(191,109,133);
+	background-color: rgb(171,204,215); opacity: 0.9;
+	font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+	text-align: center
+	padding: 15px;
+	width: 32%;
+}
+
+#instructions {
+	color: rgb(191,109,133);
+	background-color: rgb(171,204,215); opacity: 0.9;
+	font-family: 'Dancing Script', cursive;
+	font-size: 30px;
+	text-align: center
+	padding: 15px;
+	width: 30%;
+}
+.main-section {
+	background-color: rgb(171,204,215); opacity: 0.9;
+	width: 50%;
+	float: left;
+	color: rgb(191,109,133);
+	background-color: rgb(171,204,215); opacity: 0.9;
+	font-family: 'Dancing Script', cursive;
+	font-size: 20px;
+	text-align: center;
+}
+
+.game-tally-repository {
+	color: rgb(191,109,133);
+	background-color: rgb(171,204,215); opacity: 0.9;
+	font-family: 'Dancing Script', cursive;
+	font-size: 20px;
+	text-align: center;
+	width: 30%;
+	float: right;
+}
+/*
+h2 {
+	color: rgb(191,109,133);
+	background-color: rgb(171,204,215); opacity: 0.9;
+	font-size: 30px;
+	text-align: center
+}*/
+
