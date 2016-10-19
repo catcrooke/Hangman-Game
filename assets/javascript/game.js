@@ -86,9 +86,9 @@ function blanksFromAnswer ( answerWord ) {
 
 // create a function that returns incorrect letters and displays 
  //them on the screen 
-function guessedLetters (){
 
-}
+// function guessedLetters (){}
+
 // return result
 
 // create a function that links the varblanks string
@@ -98,4 +98,4 @@ function guessedLetters (){
 // with message, "You Win! Van Gogh Keeps His Ear!"
 // else, displays image with lost ear 
 // with message, "You lost this round. Van Gogh cut off his ear. 
-// Try again with the next city where he lived!"
+// Try to guess the next city where he lived to win the next round!"

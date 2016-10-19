@@ -4,19 +4,18 @@ body {
 	background-size:cover;
 }
 
-/*.image-container {
-	float: left;
-	width: 50%;
-}*/
+header {
+	
+}
 
 #heading  {
 	color: rgb(191,109,133);
 	background-color: rgb(171,204,215); opacity: 0.9;
 	font-family: 'Dancing Script', cursive;
 	font-size: 40px;
-	text-align: center
+	text-align: center;
 	padding: 10px;
-	width: 32%;
+	width: 100%;
 }
 
 #instructions {
@@ -24,9 +23,9 @@ body {
 	background-color: rgb(171,204,215); opacity: 0.9;
 	font-family: 'Dancing Script', cursive;
 	font-size: 20px;
-	text-align: center
+	text-align: center;
 	padding: 10px;
-	width: 30%;
+	width: 100%;
 }
 .main-section {
 	background-color: rgb(171,204,215); opacity: 0.9;
