@@ -3,7 +3,7 @@
 
 var word1 = ['P','a','r','i', 's'];
 var word2 =	['A','r','l','e','s'];		
-var word3 =	['S','a','i','n','t','R','e','m','y','d','e','P','r','o','v','e','n','c','e'] 		']
+var word3 =	['S','a','i','n','t','R','e','m','y','d','e','P','r','o','v','e','n','c','e'] 		
 var words4 = ['A','u','v','e','r','s','S','u','r','O','i','s','e' ]		
 
 // make a second array that will correspond to the number of spaces 
@@ -11,15 +11,15 @@ var words4 = ['A','u','v','e','r','s','S','u','r','O','i','s','e' ]
 
 var blanks1 = ['_','_','_', '_', '_'] 
 var blanks2	= ['_','_','_', '_', '_'] 		
-var blanks3 = ['_', '_', '_', '_','_','_','_','_','_', '_', '_', '_', '_', '_' '_' '_', 
-var blanks4	= ['_','_','_','_','_','_','_','_','_','_', '_','_', '_',];
+var blanks3 = ['_', '_', '_', '_','_','_','_','_','_', '_', '_', '_', '_', '_', '_', '_'] 
+var blanks4	= ['_','_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_'];
 
 // make a third array for the choices of letters that 
 // can be chosen in the game
 
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
 				'h', 'i', 'j', 'k', 'l', 'm', 'n', 
-				'o', 'p', 'q', 'r', 's', 't', 'u', 'v'
+				'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
 				'w', 'x', 'y', 'z'];
 
 // tally the number of words correctly chosen with another variable
@@ -29,7 +29,8 @@ var wins = 0
 var guesses = 10
 
 // create an event where any letter can activate the game
-document.getElementById("activate").onkeypress = function() {myFunction()};
+document.onkeypress = function() {};
+  // Code to run when they press a key goes here
 
 function myFunction() {
     // document.getElementById("activate").style.backgroundColor = "red";
@@ -37,9 +38,9 @@ function myFunction() {
 
 // create a way for the user to guess a letter from var letters 
 function chooseLetterfirstWord (){
-	if letter = 'a', then 
-}
-userGuess === 'a'
+// 	if letter = 'a', then 
+// }
+// userGuess === 'a'
 
 // which can then be 
 
@@ -88,7 +89,7 @@ function blanksFromAnswer ( answerWord ) {
 function guessedLetters (){
 
 }
-return result
+// return result
 
 // create a function that links the varblanks string
  // displays the image from that city
