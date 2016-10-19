@@ -4,18 +4,18 @@ body {
 	background-size:cover;
 }
 
-.image-container {
+/*.image-container {
 	float: left;
 	width: 50%;
-}
+}*/
 
 #heading  {
 	color: rgb(191,109,133);
 	background-color: rgb(171,204,215); opacity: 0.9;
 	font-family: 'Dancing Script', cursive;
-	font-size: 50px;
+	font-size: 40px;
 	text-align: center
-	padding: 15px;
+	padding: 10px;
 	width: 32%;
 }
 
@@ -23,9 +23,9 @@ body {
 	color: rgb(191,109,133);
 	background-color: rgb(171,204,215); opacity: 0.9;
 	font-family: 'Dancing Script', cursive;
-	font-size: 30px;
+	font-size: 20px;
 	text-align: center
-	padding: 15px;
+	padding: 10px;
 	width: 30%;
 }
 .main-section {
@@ -45,7 +45,7 @@ body {
 	font-family: 'Dancing Script', cursive;
 	font-size: 20px;
 	text-align: center;
-	width: 30%;
+	width: 35%;
 	float: right;
 }
 /*
