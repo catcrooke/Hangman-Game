@@ -21,6 +21,14 @@ var totalGuesses = 10; // Probably a number
 var wins = 0; // Probably a number
 var ALLOWED_GUESSES; // Probably a number
 
+function blanksFromAnswer ( currentWord ) {  
+    var result = ""; 
+    for ( i in currentWord ) {
+        result = "_" + result;
+    }
+    return result;
+
+
 /* Functions */
 // create fx startGame
 function startGame () {
@@ -68,12 +76,15 @@ function refreshguessesRemaining() {
   return guessesRemaining;
 }
 
-// Updates the "guessedLetters" div to contain list of letters guessed so far
+
 function refreshGuessedLetters() {
-  document.getElementById("guessedLetters").innerHTML = wordList[];
+// Updates the "guessedLetters" div to contain list of letters guessed so far
+  document.getElementById('guessedLetters').innerHTML = wordList[];
+// Updates the "hangmanWordArea" div to contain the current word "blanked out"
+  document.getElementById('hangmanWordArea').innerHTML = []
 }
 
-// Updates the "hangmanWordArea" div to contain the current word "blanked out"
+
 // (using "_" characters) except for the letters they have gotten correct
 function refreshMatchedLetters() {
   // Create a new emtpy string
