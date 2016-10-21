@@ -1,35 +1,41 @@
-// choose the words for the hangman game. 
-// assign their letters as variables in a string
+// DIVS to have on DOM
 
-var word1 = ['P','a','r','i', 's'];
-var word2 =	['A','r','l','e','s'];		
-var word3 =	['S','a','i','n','t','R','e','m','y','d','e','P','r','o','v','e','n','c','e'] 		
-var words4 = ['A','u','v','e','r','s','S','u','r','O','i','s','e' ]		
+// -guessesRemaining
+// -guesses
+// -hangmanWordArea
+// -message
 
-// make a second array that will correspond to the number of spaces 
-// in each of the words
 
-var blanks1 = ['_','_','_', '_', '_'] 
-var blanks2	= ['_','_','_', '_', '_'] 		
-var blanks3 = ['_', '_', '_', '_','_','_','_','_','_', '_', '_', '_', '_', '_', '_', '_'] 
-var blanks4	= ['_','_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_'];
+// variables
 
-// make a third array for the choices of letters that 
-// can be chosen in the game
-
+var wordList = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];
+var currentWord;
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
-				'h', 'i', 'j', 'k', 'l', 'm', 'n', 
-				'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-				'w', 'x', 'y', 'z'];
+                'h', 'i', 'j', 'k', 'l', 'm', 'n', 
+                'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                'w', 'x', 'y', 'z'];
+var guessedLetters;
+var matchedLetters; 
+var guessesRemaining;
 
 // tally the number of words correctly chosen with another variable
 var wins = 0
-
 // create a finite number of var letters that can be chosen 
-var guesses = 10
+var allowedGuesses;
+
+// create fx startGame
+function startGame () {
+    currentWord = chooseWord();
+    guessedLetters = [];
+    guessesRemaining = 10;
+}
 
 // create an event where any letter can activate the game
-document.onkeypress = function() {};
+document.onkeypress = function(event) {
+	addEventListener("click", function() {
+    console.log("You clicked!");
+};
+startGame()
   // Code to run when they press a key goes here
 
 function myFunction() {
@@ -37,7 +43,7 @@ function myFunction() {
 }
 
 // create a way for the user to guess a letter from var letters 
-function chooseLetterfirstWord (){
+function chooseLetterfirstWord (){}
 // 	if letter = 'a', then 
 // }
 // userGuess === 'a'
@@ -82,7 +88,7 @@ function blanksFromAnswer ( answerWord ) {
         result = "_" + result;
     }
     return result;
-}
+
 
 // create a function that returns incorrect letters and displays 
  //them on the screen 

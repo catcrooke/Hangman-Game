@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src="assets/javascript/game.js"></script>
+	
 	<title>Van Gogh Hangman</title>
 </head>
 <body>
@@ -13,14 +13,19 @@
 		<p id = "instructions"> Press Any Key to Get Started!</p>
 	</header>
 	
+	<!-- div id GuessesLeft -->
+	<!-- div id guessedLetters-->
+	<!-- div id HangmanWordArea -->
+	<!-- div id message -->
+
 	<div id ="image-and-word-container" class="container">
 		<section class="main-section">
-			<div id ="word">
+			<div id ="HangmanWordArea">
 				<h2>City in France Where Van Gogh Lived</h2>
 			</div>
-			<div id ="painting">
+<!-- 			<div id ="painting">
 				<h2>Painting He Created There</h2>
-			</div>
+			</div> -->
 		</section>
 
 	<div id="game-data" class="container">
@@ -28,15 +33,15 @@
 			<div id ="wins">
 				<h2>Wins</h2>
 			</div>
-			<div id ="guesses-remaining">
+			<div id ="guessesRemaining">
 				<h2>Number of Guesses Remaining</h2>
 			</div>
-			<div id="Guessed-Letters">
-				<h2>Letters Already Guessed</h2>
+			<div id="guessedLetters">
+				<h2>Letters Guessed</h2>
 			</div>
 		</section>
 	</div>
 
-	
+	<script src="assets/javascript/game-1.js"></script>
 </body>
 </html>
