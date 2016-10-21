@@ -12,7 +12,8 @@ c
 
 var wordList = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];// Probably an array
 var currentWord; // Probably a string
-var validLetters; // Probably an array
+var validLetters = ['a', 'b', 'c', 'd', 'e', 'f','g','h', 'i', 'j', 'k', 'l', 'm', 
+'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; // Probably an array
 var guessedLetters; // Probably an array
 var matchedLetters; // Probably an array
 var guessesRemaining = 10; // Probably a number
@@ -35,7 +36,8 @@ function resetGame() {
   guessedLetters = 0;
   guessesRemaining = 10;
   totalGuesses = 10;
-  matchedLetters
+  // matchedLetters = 
+
   // Call chooseWord()
   return chooseWord;
 }
@@ -43,26 +45,32 @@ function resetGame() {
 
 function chooseWord() {
   // Find a random number between 0 and the length of the wordList array
+   return words[Math.floor(Math.random() * words.length)];
   // Get the word at this index in the wordList array
+  var wordList = [];
   // Set currentWord to this word
-  return words[Math.floor(Math.random() * words.length)];
+  currentWord = 
 }
 
 // Called each time a letter is pressed
 // Calls refreshguessesRemaining(), refreshGuessedLetters(), refreshMatchedLetters()
 // refreshWinOrLossed()
 function refreshViewGameStats() {
-
+  return refreshguessesRemaining ();
+  return refreshGuessedLetters ();
+  return refreshMatchedLetters ();
+  return refreshWinOrLossed
 }
 
 // Updates "guessesRemaining" div to contain the current value of guessesRemaining
 function refreshguessesRemaining() {
-
+  // call guessesRemaining
+  return guessesRemaining;
 }
 
 // Updates the "guessedLetters" div to contain list of letters guessed so far
 function refreshGuessedLetters() {
-
+  document.getElementById("guessedLetters").innerHTML = wordList[];
 }
 
 // Updates the "hangmanWordArea" div to contain the current word "blanked out"
@@ -135,7 +143,13 @@ and NOT in the onkeyup function.
 
 document.onkeyup = function(event) {
   // If guessesRemaining is 0
-      // call resetGame()
+  var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+  if (guessesRemaining === 0) {
+    // call resetGame()
+    return resetGame;
+  else 
+  }
+      
 
   // Else
       // Parse out the letterGuessed from the event
