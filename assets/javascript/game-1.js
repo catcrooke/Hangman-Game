@@ -7,7 +7,7 @@
   - message
 
 /*
-c
+
 /* Variables */
 
 var wordList = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];// Probably an array
@@ -16,20 +16,13 @@ var validLetters = ['a', 'b', 'c', 'd', 'e', 'f','g','h', 'i', 'j', 'k', 'l', 'm
 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; // Probably an array
 var guessedLetters; // Probably an array
 var matchedLetters; // Probably an array
-var guessesRemaining = 10; // Probably a number
-var totalGuesses = 10; // Probably a number
+var guessesRemaining; // Probably a number
+var totalGuesses; // Probably a number
 var wins = 0; // Probably a number
 var ALLOWED_GUESSES; // Probably a number
 
-function blanksFromAnswer ( currentWord ) {  
-    var result = ""; 
-    for ( i in currentWord ) {
-        result = "_" + result;
-    }
-    return result;
-
-
 /* Functions */
+
 // create fx startGame
 function startGame () {
     currentWord = chooseWord();
@@ -37,27 +30,30 @@ function startGame () {
     guessesRemaining = 10;
 }
 
+// function that creates blanks from the currentWord
+function blanksFromAnswer (currentWord) {  
+    var result = ""; 
+    for (var i = 0; i < currentWord.length; i++) {
+        result = "_" + result;
+    }
+    return result;
+}
 // Pick a word, Reset guessed & matched letters, totalGuesses, guessesRemaining
 function resetGame() {
   // Reset game variables to starting point
-  wins = 0;
-  guessedLetters = 0;
+  guessedLetters = [];
   guessesRemaining = 10;
-  totalGuesses = 10;
-  // matchedLetters = 
 
   // Call chooseWord()
-  return chooseWord;
+  currentWord = chooseWord();
 }
   
 
 function chooseWord() {
   // Find a random number between 0 and the length of the wordList array
-   return words[Math.floor(Math.random() * words.length)];
   // Get the word at this index in the wordList array
-  var wordList = [];
   // Set currentWord to this word
-  currentWord = 
+   return words[Math.floor(Math.random() * words.length)];
 }
 
 // Called each time a letter is pressed
@@ -67,27 +63,29 @@ function refreshViewGameStats() {
   return refreshguessesRemaining ();
   return refreshGuessedLetters ();
   return refreshMatchedLetters ();
-  return refreshWinOrLossed
+  return refreshWinOrLossed ();
 }
 
 // Updates "guessesRemaining" div to contain the current value of guessesRemaining
 function refreshguessesRemaining() {
   // call guessesRemaining
-  return guessesRemaining;
+  document.getElementById('guessesRemaining').innerHTML = 'Guesses Remaining: ' 
+  + guessesRemaining;
 }
 
 
 function refreshGuessedLetters() {
 // Updates the "guessedLetters" div to contain list of letters guessed so far
-  document.getElementById('guessedLetters').innerHTML = wordList[];
+  document.getElementById('guessedLetters').innerHTML = wordList
 // Updates the "hangmanWordArea" div to contain the current word "blanked out"
-  document.getElementById('hangmanWordArea').innerHTML = []
+
 }
 
 
 // (using "_" characters) except for the letters they have gotten correct
 function refreshMatchedLetters() {
   // Create a new emtpy string
+
   // For each letter in the currentWord (sounds like a for loop)
   // If they have guessed the letter, then concatenate that letter on the
   // new empty string you've created, otherwise concatenate "_"
@@ -151,14 +149,17 @@ top of your .js file (or all in one big game object at the top of your .js file)
 and NOT in the onkeyup function.
 
 */
+// create an event where any letter can activate/reset the game
 
 document.onkeyup = function(event) {
-  // If guessesRemaining is 0
   var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+  // If guessesRemaining is 0
   if (guessesRemaining === 0) {
     // call resetGame()
-    return resetGame;
-  else 
+    resetGame();
+  }
+  else {
+    refreshViewGameStats();
   }
       
 
