@@ -4,10 +4,6 @@ body {
 	background-size:cover;
 }
 
-header {
-	
-}
-
 #heading  {
 	color: rgb(191,109,133);
 	background-color: rgb(171,204,215); opacity: 0.9;
@@ -31,27 +27,24 @@ header {
 	background-color: rgb(171,204,215); opacity: 0.9;
 	width: 50%;
 	float: left;
-	color: rgb(191,109,133);
 	background-color: rgb(171,204,215); opacity: 0.9;
-	font-family: 'Dancing Script', cursive;
-	font-size: 20px;
-	text-align: center;
+
 }
 
 .game-tally-repository {
-	color: rgb(191,109,133);
 	background-color: rgb(171,204,215); opacity: 0.9;
-	font-family: 'Dancing Script', cursive;
-	font-size: 20px;
-	text-align: center;
 	width: 35%;
 	float: right;
 }
-/*
-h2 {
+
+#hangmanWordArea,
+#message,
+#wins,
+#guessesRemaining,
+#guessedLetters {
 	color: rgb(191,109,133);
-	background-color: rgb(171,204,215); opacity: 0.9;
+	font-family: 'Dancing Script', cursive;
 	font-size: 30px;
-	text-align: center
-}*/
+	text-align: center;
+}
 

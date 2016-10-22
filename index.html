@@ -10,7 +10,6 @@
 
 	<header> 
 		<p id = "heading">Van Gogh in France Hangman</p>
-		<p id = "instructions"> Press Any Key to Get Started!</p>
 	</header>
 	
 	<!-- div id GuessesLeft -->
@@ -18,25 +17,26 @@
 	<!-- div id HangmanWordArea -->
 	<!-- div id message -->
 
-	<div id ="HangmanWordArea" class="container">
-		<section class="main-section">		
-				<h2>Word</h2>
+	<div id ="main-container" class="container">
+		<section class="main-section">
+		<div id = "hangmanWordArea">Press Any Key to Get Started!
+		</div>
+		<div id = "message">
+		</div>
 		</section>
+	</div>
 
 	<div id="data" class="container">
 		<section class="game-tally-repository">
-			<div id ="wins">
-				<h2>Wins</h2>
+			<div id ="wins">Wins
 			</div>
-			<div id ="guessesRemaining">
-				<h2>Number of Guesses Remaining</h2>
+			<div id ="guessesRemaining">Number of Guesses Remaining
 			</div>
-			<div id="guessedLetters">
-				<h2>Letters Guessed</h2>
+			<div id="guessedLetters">Letters Guessed
 			</div>
 		</section>
 	</div>
 
-	<script src="assets/javascript/game-1.js"></script>
+	<script src="assets/javascript/game.js"></script>
 </body>
 </html>

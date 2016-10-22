@@ -1,27 +1,27 @@
-// DIVS to have on DOM
+/*
+  Divs to have on DOM
 
-// -guessesRemaining
-// -guesses
-// -hangmanWordArea
-// -message
+  - guessesRemaining
+  - guessedLetters
+  - hangmanWordArea
+  - message
 
+/*
 
-// variables
+/* Variables */
 
-var wordList = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];
-var currentWord;
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
-                'h', 'i', 'j', 'k', 'l', 'm', 'n', 
-                'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-                'w', 'x', 'y', 'z'];
-var guessedLetters;
-var matchedLetters; 
-var guessesRemaining;
+var wordList = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];// Probably an array
+var currentWord; // Probably a string
+var validLetters = ['a', 'b', 'c', 'd', 'e', 'f','g','h', 'i', 'j', 'k', 'l', 'm', 
+'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; // Probably an array
+var guessedLetters; // Probably an array
+var matchedLetters; // Probably an array
+var guessesRemaining; // Probably a number
+var totalGuesses; // Probably a number
+var wins = 0; // Probably a number
+var ALLOWED_GUESSES; // Probably a number
 
-// tally the number of words correctly chosen with another variable
-var wins = 0
-// create a finite number of var letters that can be chosen 
-var allowedGuesses;
+/* Functions */
 
 // create fx startGame
 function startGame () {
@@ -30,78 +30,169 @@ function startGame () {
     guessesRemaining = 10;
 }
 
-// create an event where any letter can activate the game
-document.onkeypress = function(event) {
-	addEventListener("click", function() {
-    console.log("You clicked!");
-};
-startGame()
-  // Code to run when they press a key goes here
-
-function myFunction() {
-    // document.getElementById("activate").style.backgroundColor = "red";
-}
-
-// create a way for the user to guess a letter from var letters 
-function chooseLetterfirstWord (){}
-// 	if letter = 'a', then 
-// }
-// userGuess === 'a'
-
-// which can then be 
-
-// div id word has a function that concatenates var blanks and then displays
-// them in a span
-
-
-
-// and then replaces the blanks with var words based on 
-// right/wrong letters chosen
-
-
-//blanks are replaced by letters as letters are chosen correctly
-
-
-// (same letter can be chosen multiple times without penalty &
-
-// letters are stored once in the guesses div-
-
-
-// some sort of conditional statement?)
-
-
-// create a function that relates var words with var blanks
-function chooseWord () {
-    return words[Math.floor(Math.random() * words.length)];
-}
-
- // // Create code that "grabs" the div with the matching id (#word);
-
- // var drinkList = document.getelementbyId ('word') 
-
-//create a function that substitutes var letters indices with 
-// individual spaces in var blanks
-
-function blanksFromAnswer ( answerWord ) {  
-    var result = ""; 
-    for ( i in answerWord ) {
-        result = "_" + result;
+// function that creates blanks from the currentWord
+function blanksFromAnswer (currentWord) {  
+    var result = ''; 
+    for (var i = 0; i < currentWord.length; i++) {
+        result = '_' + result;
     }
     return result;
+}
+// Pick a word, Reset guessed & matched letters, totalGuesses, guessesRemaining
+function resetGame() {
+  // Reset game variables to starting point
+  guessedLetters = [];
+  guessesRemaining = 10;
+  // Call chooseWord()
+  currentWord = chooseWord();
+}
+  
+function chooseWord() {
+  // Find a random number between 0 and the length of the wordList array
+  // Get the word at this index in the wordList array
+  // Set currentWord to this word
+   return words[Math.floor(Math.random() * words.length)];
+}
 
+// Called each time a letter is pressed
+// Calls refreshguessesRemaining(), refreshGuessedLetters(), refreshMatchedLetters()
+// refresh WinOrLost()
+function refreshViewGameStats() {
+  refreshguessesRemaining ();
+  refreshGuessedLetters ();
+  refreshMatchedLetters ();
+  refreshWinOrLost ();
+}
 
-// create a function that returns incorrect letters and displays 
- //them on the screen 
+// Updates "guessesRemaining" div to contain the current value of guessesRemaining
+function refreshguessesRemaining() {
+  // call guessesRemaining
+  document.getElementById('guessesRemaining').innerHTML = 'Guesses Remaining: ' 
+  + guessesRemaining;
+}
 
-// function guessedLetters (){}
+function refreshGuessedLetters() {
+// Updates the "guessedLetters" div to contain list of letters guessed so far
+  document.getElementById('guessedLetters').innerHTML = wordList
+// Updates the "hangmanWordArea" div to contain the current word "blanked out"
+  document.getElementById('hangmanWordArea').innerHTML = result
+}
 
-// return result
+// (using "_" characters) except for the letters they have gotten correct
+function refreshMatchedLetters() {
+  // Create a new emtpy string
+  var result = '';
+  // For each letter in the currentWord (sounds like a for loop)
+  for (var i = 0; i < currentWord.length; i++) {
+// If they have guessed the letter, then concatenate that letter on the  
+  result = '' + result; }
+// new empty string you've created, otherwise concatenate "_"    
+    else {
+    result = '_' + result;
+    }
+  }    
+  return result;
+// Update the inner html of the hangmanWordArea to equal this new string
 
-// create a function that links the varblanks string
- // displays the image from that city
+// By default, in the html (when the page loads) this div will initially
+// contain a "welcome" message: "Welcome to Hangman, press any key to play!"
+// This will be overwritten by this method once they start playing their first
+// game
 
-// if player answers correctly, displays image with ear intact
-// with message, "You Win! Van Gogh Keeps His Ear!"
-// else, displays image with lost ear 
-// with message, "You lost this round. Van Gogh cut off his ear. 
-// Try to guess the next city where he lived to win the next round!"
+// Checks to see if user has won, is still guessing, or has lost and displays
+// The proper message in the message div accrodingly based on one of those
+// 3 outcomes.
+function refreshWinOrLost() {
+// Check to see if user has won by calling hasUserWon()
+  hasUserWon ();
+// If hasUserWon is true  
+  if (hasUserWon === true) {
+// update messageDiv innerHTML to show a  message
+    document.getElementById('message').innerHTML = 'You won!'};
+// Else if there are guesses left
+  else if (guessesRemaining >= 0) {
+// set the innerHTML of the message div to an empty string
+// (game is still in progress, no message to show)
+    document.getElementById('message').innerHTML = ''};
+  }
+  // Else
+  else if (guessesRemaining === 0) {
+      // They have run out of guesses and lost, display a "You Lost" message
+    document.getElementById('message').innerHTML = 'You lost!'
+  }
+}
+
+// Else returns false
+function hasUserWon() {
+// Returns true if the hangmanWordAreaDiv's inner html === the currentWord
+  if (document.getElementById('hangmanWordArea').innerHTML === currentWord) {
+// Increments wins if they've won
+    wins++;
+// Sets guessesRemaining to zero, so next keypress starts a new game
+    guessesRemaining = 0;
+    onkeyup = resetGame };
+ } 
+  return true;
+
+// Takes 1 argument --> letterGuessed
+function matchGuess(letterGuessed) {
+// Checks to see if letter exists in currentWord  
+    if (letterGuessed.indexOf(currentWord) === -1) {
+ // Properly adds the guess to guessedLetters & matchedLetters
+    letterGuessed.push(currentWord);
+    letterGuessed.push(matchedLetters);         
+// Increments totalGuesses
+    totalGuesses ++
+// decrements guessesRemaining
+    guessesRemaining --
+  } else if (letterGuessed.indexOf(currentWord > -1)) {
+    console.log (letterGuessed + ' already exists in the currentWord')
+  }
+}
+
+// Takes 1 argument --> the letter guessed
+function isAValidLetter(letterGuessed) {
+// Returns true if the letterGuessed is in the array of validLetters
+    if (letterGuessed.indexOf(validLetters) === -1) 
+}
+return true
+
+// Takes 1 argument -> the letter guessed
+function hasGuessedLetter(letterGuessed) {
+// Checks to see if the letter guessed is in the array of guessed letters
+    if (letterGuessed.indexOf(guessedLetters) === -1)
+// Alerts ("you've already guessed this letter") if they have already
+    alert ("You've already guessed this letter!")
+// Returns true if they have, returns false if they have not
+}
+return true
+
+/*
+
+Everything up until this point should be variables & functions declared at the
+top of your .js file (or all in one big game object at the top of your .js file)
+and NOT in the onkeyup function.
+
+*/
+// create an event where any letter can activate/reset the game
+
+document.onkeyup = function(event) {
+  var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+  // If guessesRemaining is 0
+  if (guessesRemaining === 0) {
+    // call resetGame()
+    resetGame();
+  }
+  else {
+// call refreshViewGameStats() on each keyup
+    refreshViewGameStats();
+  }
+// Else If it is a validLetter && the user has not guessed the letter yet
+// Parse out the letterGuessed from the event 
+  else if (letterGuessed.indexOf(validLetter) && letterGuessed >-1){
+// call matchGuess() to match the guess with the word
+    matchGuess();
+  }
+ } 
+
+};
