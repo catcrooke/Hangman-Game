@@ -67,15 +67,15 @@ function refreshViewGameStats() {
 // Updates "guessesRemaining" div to contain the current value of guessesRemaining
 function refreshguessesRemaining() {
   // call guessesRemaining
-  document.getElementById('guessesRemaining').innerHTML = 'Guesses Remaining: ' 
+  document.getElementById('#guessesRemaining').innerHTML = 'Guesses Remaining: ' 
   + guessesRemaining;
 }
 
 function refreshGuessedLetters() {
 // Updates the "guessedLetters" div to contain list of letters guessed so far
-  document.getElementById('guessedLetters').innerHTML = wordList
+  document.getElementById('#guessedLetters').innerHTML = wordList;
 // Updates the "hangmanWordArea" div to contain the current word "blanked out"
-  document.getElementById('hangmanWordArea').innerHTML = result
+  document.getElementById('#hangmanWordArea').innerHTML = result;
 }
 
 // (using "_" characters) except for the letters they have gotten correct
@@ -107,25 +107,25 @@ function refreshWinOrLost() {
 // If hasUserWon is true  
   if (hasUserWon === true) {
 // update messageDiv innerHTML to show a  message
-    document.getElementById('message').innerHTML = 'You won!';
+    document.getElementById('#message').innerHTML = 'You won!';
   }
 // Else if there are guesses left
   else if (guessesRemaining >= 0) {
 // set the innerHTML of the message div to an empty string
 // (game is still in progress, no message to show)
-    document.getElementById('message').innerHTML = '';
+    document.getElementById('#message').innerHTML = '';
   }
   // Else
   else if (guessesRemaining === 0) {
       // They have run out of guesses and lost, display a "You Lost" message
-    document.getElementById('message').innerHTML = 'You lost!'
+    document.getElementById('#message').innerHTML = 'You lost!'
   }
 }
 
 // Else returns false
 function hasUserWon() {
 // Returns true if the hangmanWordAreaDiv's inner html === the currentWord
-  if (document.getElementById('hangmanWordArea').innerHTML === currentWord) {
+  if (document.getElementById('#hangmanWordArea').innerHTML === currentWord) {
 // Increments wins if they've won
     wins++;
 // Sets guessesRemaining to zero, so next keypress starts a new game
@@ -189,7 +189,7 @@ document.onkeyup = function(event) {
   }
   // Else If it is a validLetter && the user has not guessed the letter yet
 // Parse out the letterGuessed from the event 
-  else if (validLetter.indexOf(letterGuessed) && validLetter > -1) {
+  else if (validLetters.indexOf(letterGuessed) && validLetters > -1) {
 // call matchGuess() to match the guess with the word
     matchGuess();
   }
