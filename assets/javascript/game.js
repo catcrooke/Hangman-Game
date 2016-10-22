@@ -85,13 +85,12 @@ function refreshMatchedLetters() {
   // For each letter in the currentWord (sounds like a for loop)
   for (var i = 0; i < currentWord.length; i++) {
 // If they have guessed the letter, then concatenate that letter on the  
-  result = '' + result; }
+    result = '' + result; 
 // new empty string you've created, otherwise concatenate "_"    
-    else {
     result = '_' + result;
-    }
   }    
   return result;
+}
 // Update the inner html of the hangmanWordArea to equal this new string
 
 // By default, in the html (when the page loads) this div will initially
@@ -108,12 +107,13 @@ function refreshWinOrLost() {
 // If hasUserWon is true  
   if (hasUserWon === true) {
 // update messageDiv innerHTML to show a  message
-    document.getElementById('message').innerHTML = 'You won!'};
+    document.getElementById('message').innerHTML = 'You won!';
+  }
 // Else if there are guesses left
   else if (guessesRemaining >= 0) {
 // set the innerHTML of the message div to an empty string
 // (game is still in progress, no message to show)
-    document.getElementById('message').innerHTML = ''};
+    document.getElementById('message').innerHTML = '';
   }
   // Else
   else if (guessesRemaining === 0) {
@@ -130,10 +130,10 @@ function hasUserWon() {
     wins++;
 // Sets guessesRemaining to zero, so next keypress starts a new game
     guessesRemaining = 0;
-    onkeyup = resetGame };
+    onkeyup = resetGame;
  } 
   return true;
-
+}
 // Takes 1 argument --> letterGuessed
 function matchGuess(letterGuessed) {
 // Checks to see if letter exists in currentWord  
@@ -153,19 +153,23 @@ function matchGuess(letterGuessed) {
 // Takes 1 argument --> the letter guessed
 function isAValidLetter(letterGuessed) {
 // Returns true if the letterGuessed is in the array of validLetters
-    if (letterGuessed.indexOf(validLetters) === -1) 
+    if (validLetters.indexOf(letterGuessed) === -1) {
+      return true  
+    }
 }
-return true
+
 
 // Takes 1 argument -> the letter guessed
 function hasGuessedLetter(letterGuessed) {
 // Checks to see if the letter guessed is in the array of guessed letters
-    if (letterGuessed.indexOf(guessedLetters) === -1)
-// Alerts ("you've already guessed this letter") if they have already
-    alert ("You've already guessed this letter!")
+    if (guessedLetters.indexOf(letterGuessed) === -1) {
+  // Alerts ("you've already guessed this letter") if they have already
+      alert ("You've already guessed this letter!")
 // Returns true if they have, returns false if they have not
+      return true    
+    }
 }
-return true
+
 
 /*
 
@@ -183,16 +187,15 @@ document.onkeyup = function(event) {
     // call resetGame()
     resetGame();
   }
-  else {
-// call refreshViewGameStats() on each keyup
-    refreshViewGameStats();
-  }
-// Else If it is a validLetter && the user has not guessed the letter yet
+  // Else If it is a validLetter && the user has not guessed the letter yet
 // Parse out the letterGuessed from the event 
   else if (letterGuessed.indexOf(validLetter) && letterGuessed >-1){
 // call matchGuess() to match the guess with the word
     matchGuess();
   }
+  else {
+// call refreshViewGameStats() on each keyup
+    refreshViewGameStats();
+  }
  } 
 
-};
