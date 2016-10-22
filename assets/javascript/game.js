@@ -189,7 +189,7 @@ document.onkeyup = function(event) {
   }
   // Else If it is a validLetter && the user has not guessed the letter yet
 // Parse out the letterGuessed from the event 
-  else if (letterGuessed.indexOf(validLetter) && letterGuessed >-1){
+  else if (validLetter.indexOf(letterGuessed) && validLetter > -1) {
 // call matchGuess() to match the guess with the word
     matchGuess();
   }
