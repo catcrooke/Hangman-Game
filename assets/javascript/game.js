@@ -10,11 +10,11 @@
 
 /* Variables */
 
-var wordList = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];// Probably an array
+var words = ['Arles', 'Paris', 'Auvers Sur Oise', 'Saint Remy'];// Probably an array
 var currentWord; // Probably a string
 var validLetters = ['a', 'b', 'c', 'd', 'e', 'f','g','h', 'i', 'j', 'k', 'l', 'm', 
 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; // Probably an array
-var guessedLetters; // Probably an array
+var guessedLetters = []; // Probably an array
 var matchedLetters; // Probably an array
 var guessesRemaining; // Probably a number
 var totalGuesses; // Probably a number
@@ -45,6 +45,7 @@ function resetGame() {
   guessesRemaining = 10;
   // Call chooseWord()
   currentWord = chooseWord();
+  console.log (currentWord);
 }
   
 function chooseWord() {
@@ -67,15 +68,15 @@ function refreshViewGameStats() {
 // Updates "guessesRemaining" div to contain the current value of guessesRemaining
 function refreshguessesRemaining() {
   // call guessesRemaining
-  document.getElementById('#guessesRemaining').innerHTML = 'Guesses Remaining: ' 
-  + guessesRemaining;
+  // document.getElementById('#guessesRemaining').innerHTML = 'Guesses Remaining: ' 
+  // + guessesRemaining;
 }
 
 function refreshGuessedLetters() {
 // Updates the "guessedLetters" div to contain list of letters guessed so far
-  document.getElementById('#guessedLetters').innerHTML = wordList;
+ // document.getElementById('#guessedLetters').innerHTML = wordList;
 // Updates the "hangmanWordArea" div to contain the current word "blanked out"
-  document.getElementById('#hangmanWordArea').innerHTML = result;
+  //document.getElementById('#hangmanWordArea').innerHTML = result;
 }
 
 // (using "_" characters) except for the letters they have gotten correct
@@ -137,17 +138,17 @@ function hasUserWon() {
 // Takes 1 argument --> letterGuessed
 function matchGuess(letterGuessed) {
 // Checks to see if letter exists in currentWord  
-    if (letterGuessed.indexOf(currentWord) === -1) {
- // Properly adds the guess to guessedLetters & matchedLetters
-    letterGuessed.push(currentWord);
-    letterGuessed.push(matchedLetters);         
+    if (currentWord.indexOf(letterGuessed) === -1) {
 // Increments totalGuesses
-    totalGuesses ++
+    totalGuesses ++;
 // decrements guessesRemaining
-    guessesRemaining --
-  } else if (letterGuessed.indexOf(currentWord > -1)) {
+    guessesRemaining --;
+    console.log (letterGuessed + ' doesnt exist in current word')
+  } else if (currentWord.indexOf(letterGuessed > -1)) {
     console.log (letterGuessed + ' already exists in the currentWord')
   }
+
+  guessedLetters.push(letterGuessed);
 }
 
 // Takes 1 argument --> the letter guessed
@@ -179,6 +180,7 @@ and NOT in the onkeyup function.
 
 */
 // create an event where any letter can activate/reset the game
+resetGame();
 
 document.onkeyup = function(event) {
   var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
@@ -189,13 +191,11 @@ document.onkeyup = function(event) {
   }
   // Else If it is a validLetter && the user has not guessed the letter yet
 // Parse out the letterGuessed from the event 
-  else if (validLetters.indexOf(letterGuessed) && validLetters > -1) {
+  else if (validLetters.indexOf(letterGuessed) > -1) {
 // call matchGuess() to match the guess with the word
-    matchGuess();
+    matchGuess(letterGuessed);
   }
-  else {
 // call refreshViewGameStats() on each keyup
-    refreshViewGameStats();
-  }
+  //refreshViewGameStats();
  } 
 
